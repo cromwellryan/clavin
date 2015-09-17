@@ -1,0 +1,79 @@
+FORMAT: 1A
+HOST: http://clavin.seesparkbox.com/
+
+# Sparkbox Clavin
+
+Clavin, is the Sparkbox Project Know-it-all... just like Cliff 
+Clavin from the hit show [Cheers](http://www.imdb.com/title/tt0083399/). 
+You can ask Clavin some deep questions about a project or just ask him 
+what projects are out there!
+
+Ask Clavin how things are going and he'll tell you how many hours and 
+dollars are left in the budget, how aged the PRs look, the status of 
+the backlog... you get the idea.
+
+## Projects Collection [/projects]
+
+### List All Projects [GET]
+
+You're probably going to want to know what projects Clavin knows about. 
+See, it might seem like he knows everything, but it's just that he knows
+a lot. Here's how you can find out just how much.
+
++ Response 200 (application/json)
+
+        {
+            data: [{
+                "type": "project",
+                "id": 1,
+                "attributes": {
+                    "name": "GemCityJS",
+                    "published_at": "2015-08-05T08:40:51.620Z",
+                    "active": true
+                },
+                "links": {
+                    "status": "/projects/1/status",
+                    "self": "/projects/1"
+                }
+            }]
+
+### Create a New Project [POST]
+
+Sometimes you need to tell Clavin what's-what.  He's a steal trap though - 
+ he won't forget a thing! (No warranty provided. YMMV.)
+
++ Request (application/json)
+
+        {
+          "data": {
+            "type": "project",
+            "attributes": {
+              "name": "seesparkbox.com",
+              "intSlackChannel": "int-seesparkbox",
+              "extSlackChannel": "ext-seesparkbox"
+            }
+          }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /projects/2
+
+    + Body
+
+            {
+                "data": {
+                    "type": "project",
+                    "id": 2,
+                    "attributes": {
+                        "name": "seesparkbox.com",
+                        "published_at": "2015-08-05T08:40:51.620Z",
+                        "active": true
+                    },
+                    "links": {
+                        "status": "/projects/2/status",
+                        "self": "/projects/2"
+                    }
+                }
