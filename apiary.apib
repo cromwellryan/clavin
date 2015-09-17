@@ -35,6 +35,37 @@ a lot. Here's how you can find out just how much.
                     "status": "/projects/1/status",
                     "self": "/projects/1"
                 }
+            },
+            {
+                "data": {
+                    "type": "project",
+                    "id": 2,
+                    "attributes": {
+                        "name": "seesparkbox.com",
+                        "published_at": "2015-08-05T08:40:51.620Z",
+                        "active": true
+                    },
+                    "links": {
+                        "status": "/projects/2/status",
+                        "self": "/projects/2"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "type": "project",
+                    "id": 3,
+                    "attributes": {
+                        "id": 3,
+                        "name": "apprentice.at",
+                        "published_at": "2015-08-05T08:40:51.620Z",
+                        "active": true
+                    },
+                    "links": {
+                        "status": "/projects/3/status",
+                        "self": "/projects/3"
+                    }
+                }
             }]
 
 ### Create a New Project [POST]
@@ -80,6 +111,7 @@ Sometimes you need to tell Clavin what's-what.  He's a steal trap though -
                         "self": "/projects/2"
                     }
                 }
+            }
 
 ## Single Project [/projects/{project_id}]
 
@@ -109,6 +141,7 @@ a project from him and you'll win!
                         "self": "/projects/2"
                     }
                 }
+            }
 
 ### Update an existing Project [PUT]
 
@@ -128,6 +161,7 @@ spell things phenetically.
                         "active": true
                     }
                 }
+            }
 
 + Response 200 (application/vnd.api+json)
 
@@ -146,3 +180,4 @@ spell things phenetically.
                         "self": "/projects/3"
                     }
                 }
+            }
