@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://clavin.seesparkbox.com/
+HOST: https://clavin.io/
 
 # Sparkbox Clavin
 
@@ -20,7 +20,7 @@ You're probably going to want to know what projects Clavin knows about.
 See, it might seem like he knows everything, but it's just that he knows
 a lot. Here's how you can find out just how much.
 
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
         {
             data: [{
@@ -42,7 +42,7 @@ a lot. Here's how you can find out just how much.
 Sometimes you need to tell Clavin what's-what.  He's a steal trap though - 
  he won't forget a thing! (No warranty provided. YMMV.)
 
-+ Request (application/json)
++ Request (application/vnd.api+json)
 
         {
           "data": {
@@ -58,7 +58,7 @@ Sometimes you need to tell Clavin what's-what.  He's a steal trap though -
           }
         }
 
-+ Response 201 (application/json)
++ Response 201 (application/vnd.api+json)
 
     + Headers
 
@@ -78,5 +78,71 @@ Sometimes you need to tell Clavin what's-what.  He's a steal trap though -
                     "links": {
                         "status": "/projects/2/status",
                         "self": "/projects/2"
+                    }
+                }
+
+## Single Project [/projects/{project_id}]
+
++ Parameters
+    + project_id (number) - ID of the project in the form of an integer
+
+### Get a Project [GET]
+
+Say your at a party, playing Trivial Pursuit, and a question about one of our
+Sparkbox projects is the question.  If Clavin's on your team you can just get 
+a project from him and you'll win!
+
++ Response 200 (application/vnd.api+json)
+
+            {
+                "data": {
+                    "type": "project",
+                    "id": 2,
+                    "attributes": {
+                        "id": 2,
+                        "name": "seesparkbox.com",
+                        "published_at": "2015-08-05T08:40:51.620Z",
+                        "active": true
+                    },
+                    "links": {
+                        "status": "/projects/2/status",
+                        "self": "/projects/2"
+                    }
+                }
+
+### Update an existing Project [PUT]
+
+Say Clavin starts blabbering about a project, but uses the British pronunciation
+of the name rather than the Piglatin variation. The only way to fix things is to
+spell things phenetically.
+
++ Request
+
+            {
+                "data": {
+                    "type": "project",
+                    "id": 3,
+                    "attributes": {
+                        "name": "apprentice.at",
+                        "published_at": "2015-08-05T08:40:51.620Z",
+                        "active": true
+                    }
+                }
+
++ Response 200 (application/vnd.api+json)
+
+            {
+                "data": {
+                    "type": "project",
+                    "id": 3,
+                    "attributes": {
+                        "id": 3,
+                        "name": "apprentice.at",
+                        "published_at": "2015-08-05T08:40:51.620Z",
+                        "active": true
+                    },
+                    "links": {
+                        "status": "/projects/3/status",
+                        "self": "/projects/3"
                     }
                 }
